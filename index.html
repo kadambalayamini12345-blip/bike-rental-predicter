@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bike Rental Pediction</title>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            margin-top: 100px;
+            background: #f0f0f0;
+        }
+       .box {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            width: 400px;
+            margin: auto;
+            box-shadow: 0 0 10px gray;
+        }
+        input {
+            padding: 12px;
+            margin: 10px;
+            width: 80%;
+            font-size: 16px;
+        }
+       .btn {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        h2 { color: #333; }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h1>Bike Rental Prediction 💰</h1>
+        <form action="/predict" method="post">
+            Season(1-4):<input type="number" name="season" min="1" max="4" required><br>
+            Year(0=2011,1=2012):<input type="number" name="yr" min="0" max="1" required><br>
+            Month(1-12):<input type="number" name="mnth" min="1" max="12" required><br>
+            Holiday(0-1):<input type="number" name="holiday" min="0" max="1" required><br>
+            Weekday(0-6):<input type="number" name="weekday" min="0" max="6" required><br>
+            Workingday(0/1):<input type="number" name="workingday" min="0" max="1" required><br>
+            Weathersit(1/4):<input type="number" name="weathersit" min="1" max="4" required><br>
+           temp <input type="text"  name="temp" placeholder="0.0 to 1.0" required><br>
+            Atemp<input type="text" name="atemp" placeholder="0.0 to 1.0" required><br>
+            Hum<input type="text"  name="hum" placeholder="0.0 to 1.0" required><br>
+            Windspeed<input type="text"  name="windspeed" placeholder="0.0 to 1.0" required><br>
+                    <button type="submit">Predict Rental</button>
+        </form>
+        <h2>{{ prediction_text }}</h2>
+    </div>
+</body>
+</html>
